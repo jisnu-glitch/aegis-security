@@ -1,82 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar.jsx';
-import CyberBackground from './components/CyberBackground.jsx';
 import Logo from './components/Logo.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import AnalyzerPage from './pages/AnalyzerPage.jsx';
 import HistoryPage from './pages/HistoryPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
-import { ApiService } from './services/apiService.js';
-import { StorageService } from './services/StorageService.js';
-import { cyberAudio } from './utils/cyberAudio.js';
+import { useThreatAnalysis } from './hooks/useThreatAnalysis.js';
 
+/**
+ * Main Application Component
+ * Coordinates routing and passes threat analysis state down to view pages.
+ */
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
-  const [report, setReport] = useState(null);
-  const [isScanning, setIsScanning] = useState(false);
-  const [activeTargetUrl, setActiveTargetUrl] = useState('');
-  const [history, setHistory] = useState([]);
-  const [backendStatus, setBackendStatus] = useState({ isOnline: true });
-  const [pendingReport, setPendingReport] = useState(null);
 
-  useEffect(() => {
-    async function init() {
-      const initialHistory = StorageService.getHistory();
-      setHistory(initialHistory);
-      if (initialHistory && initialHistory.length > 0) {
-        setReport(initialHistory[0]);
-      }
-
-      const status = await ApiService.checkBackendHealth();
-      setBackendStatus(status);
-    }
-    init();
-  }, []);
-
-  const handleAnalyze = async (url) => {
-    setActiveTargetUrl(url);
-    setIsScanning(true);
-
-    const result = await ApiService.analyzeURL(url);
-    if (result && result.success && result.report) {
-      setPendingReport(result.report);
-    } else {
-      console.error('Analysis failed:', result?.error);
-      setIsScanning(false);
-    }
-  };
-
-  const handleProgressComplete = () => {
-    if (pendingReport) {
-      setReport(pendingReport);
-      const updatedHistory = StorageService.getHistory();
-      setHistory(updatedHistory);
-      cyberAudio.playScanComplete(pendingReport.statusColor);
-      setPendingReport(null);
-    }
-    setIsScanning(false);
-  };
+  const {
+    report,
+    isScanning,
+    activeTargetUrl,
+    history,
+    backendStatus,
+    analyze,
+    onProgressComplete,
+    viewHistoricalScan,
+    deleteScan,
+    clearHistory
+  } = useThreatAnalysis();
 
   const handleViewScan = (scanItem) => {
-    setReport(scanItem);
+    viewHistoricalScan(scanItem);
     setActiveTab('dashboard');
     window.scrollTo({ top: 320, behavior: 'smooth' });
   };
 
-  const handleDeleteScan = async (id) => {
-    const updated = await ApiService.deleteHistoryItem(id);
-    setHistory(updated);
-  };
-
-  const handleClearHistory = async () => {
-    const updated = await ApiService.clearAllHistory();
-    setHistory(updated);
-  };
-
   return (
     <div className="app-container">
-      <CyberBackground />
-
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -90,11 +48,11 @@ export default function App() {
             isScanning={isScanning}
             activeTargetUrl={activeTargetUrl}
             history={history}
-            onAnalyze={handleAnalyze}
-            onProgressComplete={handleProgressComplete}
+            onAnalyze={analyze}
+            onProgressComplete={onProgressComplete}
             onViewScan={handleViewScan}
-            onDeleteScan={handleDeleteScan}
-            onClearHistory={handleClearHistory}
+            onDeleteScan={deleteScan}
+            onClearHistory={clearHistory}
           />
         )}
 
@@ -103,8 +61,8 @@ export default function App() {
             report={report}
             isScanning={isScanning}
             activeTargetUrl={activeTargetUrl}
-            onAnalyze={handleAnalyze}
-            onProgressComplete={handleProgressComplete}
+            onAnalyze={analyze}
+            onProgressComplete={onProgressComplete}
           />
         )}
 
@@ -112,8 +70,8 @@ export default function App() {
           <HistoryPage
             history={history}
             onViewScan={handleViewScan}
-            onDeleteScan={handleDeleteScan}
-            onClearHistory={handleClearHistory}
+            onDeleteScan={deleteScan}
+            onClearHistory={clearHistory}
           />
         )}
 
