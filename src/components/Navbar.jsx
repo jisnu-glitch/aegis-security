@@ -25,7 +25,7 @@ export default function Navbar({ activeTab, setActiveTab, backendStatus }) {
             <Logo size={24} />
           </div>
           <div>
-            <div className="brand-title">AEGIS</div>
+            <div className="brand-title">LINKRADAR</div>
             <div className="brand-subtitle">Think Before You Click</div>
           </div>
         </div>

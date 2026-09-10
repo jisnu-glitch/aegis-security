@@ -11,11 +11,11 @@ export default function AboutPage() {
           <span>System Architecture</span>
         </div>
         <h1 className="hero-title" style={{ fontSize: '2rem' }}>
-          About AEGIS
+          About LINKRADAR
         </h1>
         <div className="hero-tagline">Think Before You Click.</div>
         <p className="hero-description">
-          AEGIS is an intelligent, explainable URL threat analysis and phishing detection platform built to help users evaluate suspicious links before interacting with them.
+          LINKRADAR is an intelligent, explainable URL threat analysis and phishing detection platform built to help users evaluate suspicious links before interacting with them.
         </p>
       </div>
 
@@ -23,13 +23,13 @@ export default function AboutPage() {
       <div className="cyber-card" style={{ marginBottom: '24px' }}>
         <h2 className="card-title" style={{ fontSize: '1.05rem', marginBottom: '12px' }}>
           <Cpu size={18} style={{ color: 'var(--accent)' }} />
-          <span>Heuristic Detection Engine</span>
+          <span>Multi-Vector Heuristic Radar</span>
         </h2>
         <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.9rem', marginBottom: '12px' }}>
           Static blocklists are reactive and only flag malicious websites after victims have already been compromised.
         </p>
         <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.9rem' }}>
-          AEGIS performs real-time structural, cryptographic, phonetic, and semantic analysis on URLs to identify potential phishing patterns, homoglyphs, and social engineering indicators dynamically.
+          LINKRADAR performs real-time structural, cryptographic, phonetic, and semantic analysis on URLs to identify potential phishing patterns, homoglyphs, and social engineering indicators dynamically.
         </p>
       </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Terminal, Shield } from 'lucide-react';
+import Logo from '../components/Logo.jsx';
 import URLAnalyzer from '../components/URLAnalyzer.jsx';
 import AnalysisProgress from '../components/AnalysisProgress.jsx';
 import SecurityScore from '../components/SecurityScore.jsx';
@@ -21,14 +22,14 @@ export default function AnalyzerPage({
     <div>
       <div style={{ marginBottom: '28px' }}>
         <div className="hero-pill-badge">
-          <Terminal size={13} />
-          <span>Heuristic Analysis</span>
+          <Logo size={13} />
+          <span>Multi-Vector Heuristics</span>
         </div>
         <h1 className="hero-title" style={{ fontSize: '2rem' }}>
-          URL Threat Analyzer
+          Link Threat Analyzer
         </h1>
         <p style={{ color: 'var(--text-muted)', maxWidth: '600px' }}>
-          Inspect suspicious links, brand lookalikes, and unverified redirect patterns.
+          Inspect suspicious links, brand lookalikes, and unverified redirect patterns across 6 security vectors.
         </p>
       </div>
 
@@ -53,7 +54,7 @@ export default function AnalyzerPage({
           </div>
 
           <h2 className="section-heading">
-            <Shield size={16} style={{ color: 'var(--accent)' }} />
+            <Logo size={15} />
             <span>Security Checks</span>
           </h2>
 

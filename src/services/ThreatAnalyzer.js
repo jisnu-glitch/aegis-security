@@ -35,7 +35,7 @@ export function analyzeTargetURL(rawUrl, serverEnrichment = null) {
     structureHealth: Math.max(10, 100 - (parsed.lengthAssessment.penalty * 5) - (parsed.isIpAddress ? 60 : 0))
   };
 
-  const reportId = `AEGIS-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
+  const reportId = `RADAR-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
 
   return {
     id: reportId,

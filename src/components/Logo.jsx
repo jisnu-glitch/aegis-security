@@ -1,8 +1,8 @@
 import React from 'react';
 
 /**
- * Modern Geometric Startup Logo for AEGIS
- * Precision vector icon featuring a clean faceted shield and core vertex in Monkeytype accent.
+ * Modern Vector Logo for LINKRADAR
+ * Sleek precision icon combining a 360-degree radar target reticle with an interlocking link vertex.
  */
 export default function Logo({ size = 22, className = '' }) {
   return (
@@ -15,31 +15,47 @@ export default function Logo({ size = 22, className = '' }) {
       className={className}
       style={{ verticalAlign: 'middle' }}
     >
-      {/* Outer Geometric Hex-Shield Contour */}
-      <path
-        d="M16 3L28 8.5V17.5C28 23.8 22.8 28.5 16 30C9.2 28.5 4 23.8 4 17.5V8.5L16 3Z"
+      {/* Outer Radar Contour Ring */}
+      <circle
+        cx="16"
+        cy="16"
+        r="13.5"
         stroke="#d1d0c5"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeWidth="1.75"
+        strokeDasharray="2 2.5"
       />
-      {/* Inner Prism Intersection */}
-      <path
-        d="M16 3V30"
-        stroke="rgba(209, 208, 197, 0.25)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
+      
+      {/* Inner Precision Radar Ring */}
+      <circle
+        cx="16"
+        cy="16"
+        r="8.5"
+        stroke="rgba(209, 208, 197, 0.3)"
+        strokeWidth="1.2"
       />
-      {/* Dynamic Golden Center Core Accent */}
+
+      {/* Crosshair Axes */}
+      <line x1="16" y1="2" x2="16" y2="30" stroke="rgba(209, 208, 197, 0.2)" strokeWidth="1" />
+      <line x1="2" y1="16" x2="30" y2="16" stroke="rgba(209, 208, 197, 0.2)" strokeWidth="1" />
+
+      {/* Golden Active Radar Sweep Wedge / Interlocking Node */}
       <path
-        d="M16 8L23 13V19L16 24L9 19V13L16 8Z"
-        fill="rgba(226, 183, 20, 0.15)"
+        d="M16 16L25 7A13.5 13.5 0 0 0 16 2.5V16Z"
+        fill="rgba(226, 183, 20, 0.25)"
+      />
+      <line
+        x1="16"
+        y1="16"
+        x2="25.5"
+        y2="6.5"
         stroke="#e2b714"
         strokeWidth="1.75"
-        strokeLinejoin="round"
+        strokeLinecap="round"
       />
-      {/* Central Vertex Dot */}
-      <circle cx="16" cy="16" r="2" fill="#e2b714" />
+
+      {/* Center Target Link Ping */}
+      <circle cx="16" cy="16" r="2.5" fill="#e2b714" />
+      <circle cx="21" cy="11" r="1.5" fill="#e2b714" />
     </svg>
   );
 }

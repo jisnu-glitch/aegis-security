@@ -17,14 +17,14 @@ export default function ExportReportModal({ report, onClose }) {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(report, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute('download', `aegis_${report.id || 'scan'}.json`);
+    downloadAnchor.setAttribute('download', `linkradar_${report.id || 'scan'}.json`);
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
   };
 
   const handleCopySummary = () => {
-    const textSummary = `AEGIS SECURITY DOSSIER
+    const textSummary = `LINKRADAR SECURITY DOSSIER
 URL: ${report.url}
 Verdict: ${report.status} (${report.score}/100)
 Time: ${report.displayTime || report.timestamp}
