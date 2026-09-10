@@ -46,11 +46,11 @@ export default function Dashboard({
       <section className="hero-section">
         <div className="hero-pill-badge">
           <Logo size={13} />
-          <span>Intelligent Threat Detection</span>
+          <span>Multi-Vector URL Threat Radar</span>
         </div>
 
         <h1 className="hero-title">
-          AEGIS
+          LINKRADAR
         </h1>
 
         <div className="hero-tagline">Think Before You Click.</div>

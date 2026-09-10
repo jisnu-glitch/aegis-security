@@ -1,8 +1,8 @@
-# 🛡️ AEGIS — Intelligent URL Threat Detection System
+# 🛰️ LINKRADAR — Multi-Vector URL Threat Intelligence
 
 <div align="center">
 
-![AEGIS Dashboard](docs/screenshots/dashboard.png)
+![LINKRADAR Dashboard](docs/screenshots/dashboard.png)
 
 [![React](https://img.shields.io/badge/Frontend-React%2018-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2F%20Express-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
@@ -11,7 +11,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
 **Think Before You Click.**  
-*An intelligent, explainable URL security analysis engine and threat intelligence platform.*
+*An intelligent, explainable URL security analysis engine and threat intelligence radar.*
 
 [Live Demo](#-getting-started) • [Sample Benchmark Results](#-sample-threat-analysis-benchmark) • [Architecture](#-system-architecture) • [API Reference](#-api-specification)
 
@@ -21,15 +21,15 @@
 
 ## 📖 Overview
 
-**AEGIS** is a modern cybersecurity platform engineered to identify zero-day phishing campaigns, deceptive lookalike domains, raw IP redirects, and social engineering vectors *before* users interact with them.
+**LINKRADAR** is a modern cybersecurity platform engineered to identify zero-day phishing campaigns, deceptive lookalike domains, raw IP redirects, and social engineering vectors *before* users interact with them.
 
-Unlike conventional threat blocklists that operate reactively, AEGIS evaluates the structural, cryptographic, phonetic, and semantic properties of target links in real-time.
+Unlike conventional threat blocklists that operate reactively, LINKRADAR evaluates the structural, cryptographic, phonetic, and semantic properties of target links in real-time across a 5-axis threat radar.
 
 ---
 
 ## 📊 Sample Threat Analysis Benchmark
 
-Below is a benchmark summary demonstrating how AEGIS classifies different link risk tiers with explainable root causes:
+Below is a benchmark summary demonstrating how LINKRADAR classifies different link risk tiers with explainable root causes:
 
 | Target URL | Score | Risk Tier | Primary Heuristic Triggers | Recommendation |
 | :--- | :---: | :---: | :--- | :--- |
@@ -41,7 +41,7 @@ Below is a benchmark summary demonstrating how AEGIS classifies different link r
 
 ## 📸 Screenshots & Interface
 
-### 1. High-Risk Phishing Threat Report & Multi-Axis Radar
+### 1. High-Risk Phishing Threat Report & 5-Axis Radar
 ![High Risk Dossier](docs/screenshots/high_risk_report.png)
 
 ### 2. Persistent Scan History & Audit Ledger
@@ -54,7 +54,7 @@ Below is a benchmark summary demonstrating how AEGIS classifies different link r
 
 ## 🔍 Core Security Analysis Layers
 
-AEGIS inspects every URL through six distinct security layers:
+LINKRADAR inspects every URL through six distinct security layers:
 
 ```
 [ Target URL Input ]
@@ -64,7 +64,7 @@ AEGIS inspects every URL through six distinct security layers:
          ├─── 3. Domain Heuristics Layer     (Shannon entropy, DGA, TLD risk index)
          ├─── 4. Brand Impersonation Layer   (Levenshtein edit distance & homoglyphs)
          ├─── 5. Keyword & Social Eng Layer  (Authentication, financial urgency tokens)
-         └─── 6. Threat Scoring & Synthesis  (0–100 score, explainability & recommendations)
+         └─── 6. Threat Scoring & Radar      (0–100 score, explainability & 5-axis radar)
 ```
 
 1. **🔒 HTTPS & Transport Security**: Verifies SSL/TLS encryption, flags plain-text HTTP protocol risks, and inspects non-standard service ports.
@@ -78,7 +78,7 @@ AEGIS inspects every URL through six distinct security layers:
 
 ## 🏗️ System Architecture
 
-AEGIS is built with a **Hybrid Full-Stack Architecture**:
+LINKRADAR is built with a **Hybrid Full-Stack Architecture**:
 
 ```
 d:/Dev/testing/ai-cyber/
@@ -88,7 +88,7 @@ d:/Dev/testing/ai-cyber/
 │       ├── dnsScanner.js       # Live DNS resolution & A-record inspection
 │       └── historyStore.js     # Server-side audit log store
 ├── src/
-│   ├── components/             # Minimalist React UI components & SVG Logo
+│   ├── components/             # Minimalist React UI components & SVG Radar Logo
 │   ├── hooks/
 │   │   └── useThreatAnalysis.js# Clean custom hook for analysis workflows
 │   ├── pages/                  # Dashboard, Analyzer, History, About
@@ -155,8 +155,8 @@ Analyze any target URL for security vulnerabilities and phishing indicators.
 {
   "success": true,
   "report": {
-    "id": "AEGIS-M3K9X-7A2B",
-    "timestamp": "2026-09-10T00:15:30.000Z",
+    "id": "RADAR-M3K9X-7A2B",
+    "timestamp": "2026-09-10T21:10:30.000Z",
     "url": "http://192.168.10.5/paypa1-login/verify-account",
     "score": 18,
     "status": "HIGH RISK",
@@ -181,7 +181,7 @@ Analyze any target URL for security vulnerabilities and phishing indicators.
 
 ## ⚖️ Disclaimer
 
-AEGIS provides real-time heuristic security assessments based on structural and syntactic URL indicators. This automated detection system does not guarantee that a domain is entirely harmless or compromised. Always practice zero-trust verification.
+LINKRADAR provides real-time heuristic security assessments based on structural and syntactic URL indicators. This automated detection system does not guarantee that a domain is entirely harmless or compromised. Always practice zero-trust verification.
 
 ---
 

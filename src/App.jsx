@@ -8,7 +8,7 @@ import AboutPage from './pages/AboutPage.jsx';
 import { useThreatAnalysis } from './hooks/useThreatAnalysis.js';
 
 /**
- * Main Application Component
+ * Main Application Component for LINKRADAR
  * Coordinates routing and passes threat analysis state down to view pages.
  */
 export default function App() {
@@ -82,11 +82,11 @@ export default function App() {
         <div className="footer-inner">
           <div className="footer-brand">
             <Logo size={14} />
-            <span>AEGIS // Think Before You Click</span>
+            <span>LINKRADAR // Think Before You Click</span>
           </div>
 
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <span>Threat Engine v2.4</span>
+            <span>Radar Engine v2.4</span>
             <span>•</span>
             <span style={{ color: 'var(--risk-safe)' }}>● Active</span>
           </div>
