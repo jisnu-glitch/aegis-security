@@ -1,4 +1,4 @@
-# 🛰️ LINKRADAR — Multi-Vector URL Threat Intelligence
+# LINKRADAR — Multi-Vector URL Threat Intelligence
 
 <div align="center">
 
@@ -13,33 +13,33 @@
 **Think Before You Click.**  
 *An intelligent, explainable URL security analysis engine and threat intelligence radar.*
 
-[Live Demo](#-getting-started) • [Sample Benchmark Results](#-sample-threat-analysis-benchmark) • [Architecture](#-system-architecture) • [API Reference](#-api-specification)
+[Live Demo](#getting-started) • [Sample Benchmark Results](#sample-threat-analysis-benchmark) • [Architecture](#system-architecture) • [API Reference](#api-specification)
 
 </div>
 
 ---
 
-## 📖 Overview
+## Overview
 
-**LINKRADAR** is a modern cybersecurity platform engineered to identify zero-day phishing campaigns, deceptive lookalike domains, raw IP redirects, and social engineering vectors *before* users interact with them.
+**LINKRADAR** is a modern cybersecurity platform engineered to identify zero-day phishing campaigns, deceptive lookalike domains, raw IP redirects, and social engineering vectors before users interact with them.
 
 Unlike conventional threat blocklists that operate reactively, LINKRADAR evaluates the structural, cryptographic, phonetic, and semantic properties of target links in real-time across a 5-axis threat radar.
 
 ---
 
-## 📊 Sample Threat Analysis Benchmark
+## Sample Threat Analysis Benchmark
 
 Below is a benchmark summary demonstrating how LINKRADAR classifies different link risk tiers with explainable root causes:
 
 | Target URL | Score | Risk Tier | Primary Heuristic Triggers | Recommendation |
 | :--- | :---: | :---: | :--- | :--- |
-| `http://192.168.10.5/paypa1-login/verify-account` | **18 / 100** | 🔴 **HIGH RISK** | • Raw IP routing<br>• Homoglyph (`paypa1` $\rightarrow$ PayPal)<br>• Plaintext HTTP<br>• Phishing keywords (`login`, `verify`) | ⛔ **CRITICAL:** Do not visit or enter credentials. Active phishing vector. |
-| `http://secure-login-account.xyz/verify` | **42 / 100** | 🟡 **SUSPICIOUS** | • Disposable TLD (`.xyz`)<br>• Unencrypted HTTP<br>• Credential keywords (`login`, `verify`) | ⚠️ **CAUTION:** Unverified third-party domain. Verify via independent channel. |
-| `https://google.com/search?q=cybersecurity` | **95 / 100** | 🟢 **LOW RISK** | • TLS 1.3 encryption<br>• Verified official domain infrastructure<br>• Clean Shannon entropy | ✅ **SAFE:** Standard browsing hygiene applies. |
+| `http://192.168.10.5/paypa1-login/verify-account` | **18 / 100** | **HIGH RISK** | • Raw IP routing<br>• Homoglyph (`paypa1` -> PayPal)<br>• Plaintext HTTP<br>• Phishing keywords (`login`, `verify`) | **CRITICAL:** Do not visit or enter credentials. Active phishing vector. |
+| `http://secure-login-account.xyz/verify` | **42 / 100** | **SUSPICIOUS** | • Disposable TLD (`.xyz`)<br>• Unencrypted HTTP<br>• Credential keywords (`login`, `verify`) | **CAUTION:** Unverified third-party domain. Verify via independent channel. |
+| `https://google.com/search?q=cybersecurity` | **95 / 100** | **LOW RISK** | • TLS 1.3 encryption<br>• Verified official domain infrastructure<br>• Clean Shannon entropy | **SAFE:** Standard browsing hygiene applies. |
 
 ---
 
-## 📸 Screenshots & Interface
+## Screenshots & Interface
 
 ### 1. High-Risk Phishing Threat Report & 5-Axis Radar
 ![High Risk Dossier](docs/screenshots/high_risk_report.png)
@@ -52,7 +52,7 @@ Below is a benchmark summary demonstrating how LINKRADAR classifies different li
 
 ---
 
-## 🔍 Core Security Analysis Layers
+## Core Security Analysis Layers
 
 LINKRADAR inspects every URL through six distinct security layers:
 
@@ -67,16 +67,16 @@ LINKRADAR inspects every URL through six distinct security layers:
          └─── 6. Threat Scoring & Radar      (0–100 score, explainability & 5-axis radar)
 ```
 
-1. **🔒 HTTPS & Transport Security**: Verifies SSL/TLS encryption, flags plain-text HTTP protocol risks, and inspects non-standard service ports.
-2. **📏 URL Length & Structure**: Flags excessive character lengths used to conceal redirect payloads.
-3. **🌐 IP-Based Target Detection**: Identifies direct IPv4/IPv6 addresses, hex encodings, and octal notations used to bypass domain reputation systems.
-4. **🌐 Domain Structure & Shannon Entropy**: Calculates mathematical entropy to expose Algorithmically Generated Domains (DGA), deep subdomain nesting, and high-risk disposable TLDs (`.xyz`, `.top`, `.click`, `.gq`, `.tk`).
-5. **🎭 Brand Impersonation & Homoglyphs**: Detects lookalike substitutions (e.g., `paypa1`, `arnazon`, `g00gle`, `rn` $\rightarrow$ `m`, `0` $\rightarrow$ `o`, `1` $\rightarrow$ `l`) across monitored brands.
-6. **⚠ Suspicious Keywords & Urgency Tokens**: Scans for credential harvesting and phishing bait triggers (`login`, `verify`, `password`, `wallet`, `urgent`, `reward`, `kyc`).
+1. **HTTPS & Transport Security**: Verifies SSL/TLS encryption, flags plain-text HTTP protocol risks, and inspects non-standard service ports.
+2. **URL Length & Structure**: Flags excessive character lengths used to conceal redirect payloads.
+3. **IP-Based Target Detection**: Identifies direct IPv4/IPv6 addresses, hex encodings, and octal notations used to bypass domain reputation systems.
+4. **Domain Structure & Shannon Entropy**: Calculates mathematical entropy to expose Algorithmically Generated Domains (DGA), deep subdomain nesting, and high-risk disposable TLDs (`.xyz`, `.top`, `.click`, `.gq`, `.tk`).
+5. **Brand Impersonation & Homoglyphs**: Detects lookalike substitutions (e.g., `paypa1`, `arnazon`, `g00gle`, `rn` -> `m`, `0` -> `o`, `1` -> `l`) across monitored brands.
+6. **Suspicious Keywords & Urgency Tokens**: Scans for credential harvesting and phishing bait triggers (`login`, `verify`, `password`, `wallet`, `urgent`, `reward`, `kyc`).
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 LINKRADAR is built with a **Hybrid Full-Stack Architecture**:
 
@@ -108,7 +108,7 @@ d:/Dev/testing/ai-cyber/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18 or higher)
@@ -138,7 +138,7 @@ Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 ---
 
-## 🔌 API Specification
+## API Specification
 
 ### `POST /api/analyze`
 Analyze any target URL for security vulnerabilities and phishing indicators.
@@ -179,12 +179,12 @@ Analyze any target URL for security vulnerabilities and phishing indicators.
 
 ---
 
-## ⚖️ Disclaimer
+## Disclaimer
 
 LINKRADAR provides real-time heuristic security assessments based on structural and syntactic URL indicators. This automated detection system does not guarantee that a domain is entirely harmless or compromised. Always practice zero-trust verification.
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
